@@ -1,0 +1,11 @@
+# build output
+[Bb]in/
+[Oo]bj/
+.vs/
+*.user
+*.suo
+# nuget restore target
+packages/
+# local notes
+*.bak
+*.bak_*
