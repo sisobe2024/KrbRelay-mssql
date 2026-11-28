@@ -19,6 +19,8 @@
 > `KRBRELAY_TARGET_DN` (LDAP DN override when the relayed identity can't resolve it).
 > For authorized testing only.
 
+**Original project:** this is a fork of **[0xEr3bus/KrbRelay](https://github.com/0xEr3bus/KrbRelay)** by [@0xEr3bus](https://github.com/0xEr3bus) — all credit for the core tool goes to the original author.
+
 ---
 
 Relaying 3-headed dogs.
@@ -218,3 +220,4 @@ Also added `-skip-check` option to avoid using the `CheckPort` function, make su
 * [MichaelGrafnetter](https://twitter.com/mgrafnetter) for [DSInternals](https://github.com/MichaelGrafnetter/DSInternals)
 * [Kevin Robertson](https://twitter.com/kevin_robertson) for [Inveigh](https://github.com/Kevin-Robertson/Inveigh)
 * [decoder_it](https://twitter.com/decoder_it) and [splinter_code](https://twitter.com/splinter_code) for [RemotePotato0](https://github.com/antonioCoco/RemotePotato0)
+* [0xEr3bus](https://github.com/0xEr3bus) for the original [KrbRelay](https://github.com/0xEr3bus/KrbRelay) this fork is based on
